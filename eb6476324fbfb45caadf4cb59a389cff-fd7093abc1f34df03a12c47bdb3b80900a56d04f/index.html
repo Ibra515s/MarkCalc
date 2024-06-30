@@ -1,0 +1,127 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Degree Calculator</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <section id="degreeCalculator">
+        <div class="centering" >
+            <div class="C-container">
+                <div class='C-head'>
+                    <h2> حساب المعدل <span id='add'>+</span></h2>
+                </div>
+                <div class='C-body' dir='rtl'>
+                    <div style='padding: 30px 0 20px 0; display: flex; gap: 5px; flex-wrap: wrap; justify-content: center; align-items: center; width: 100%; border-bottom: 2px solid;'>
+                        <div>
+                            <label for='R-mark'>المعدل الحالي</label><br>
+                            <input type='text' id='R-mark' name='M-mark' value="0" style="text-align: center; color: #00bbf1;">
+                        </div>
+                        <div>
+                            <label for='H-done'>الساعات المقطوعة</label><br>
+                            <input type='text' id='H-done' name='H-done' value="0" style="text-align: center; color: #00bbf1;">
+                        </div>
+                    </div>
+                    <br>
+                    <div class='subjects'>
+                        <h2 style='color: #00bbf1; margin-bottom: 10px;'>المواد :</h2>
+                        <div class='subject' id='sub-1'>
+                            <!-- <span class="close" id='delSub' style="cursor: pointer; color: #777; position: absolute; left: 10px; top: 5px;">✕</span> -->
+                            <label for="sub-1-subname">اسم المادة:</label>
+                            <input type="text" id="sub-1-subname" placeholder="اختياري">
+                            <label for='sub-1-Hsub'>ساعات المادة:</label>
+                            <input type='text' id='sub-1-Hsub' name='Hsub'>
+                            <label for='sub-1-symbol'>الرمز:</label>
+                            <select id='sub-1-symbol'>
+                                <option value='4'>A</option>
+                                <option value='3.75'>A-</option>
+                                <option value='3.5'>B+</option>
+                                <option value='3'>B</option>
+                                <option value='2.75'>B-</option>
+                                <option value='2.5'>C+</option>
+                                <option value='2'>C</option>
+                                <option value='1.75'>C-</option>
+                                <option value='1.5'>D+</option>
+                                <option value='1'>D</option>
+                            <option value='0.75'>D-</option>
+                            <option value='0.5'>F</option>
+                        </select>
+                        </div>
+                    </div>
+                </div>
+                <div class='C-foot'>
+                    <div>
+                        <button onclick='calcDegree()'>احسب</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--    start-Modal   -->
+        <!--   Start - Progress Bar -->
+        <div id="ProgModal" class="modal">
+            <div class="modal-content">
+                <div class="modal-head">
+                    <span class='close' onclick='closeModal("ProgModal")'>&#10005;</span>
+                </div>
+                <div class="modal-body" style="flex-direction: row; justify-content:space-evenly; align-items: center; border-bottom:none">
+                    <div class="degree" id="GPA-R">
+                        <p>0.00</p>
+                        <p style="color:#777">المعدل التراكمي</p>
+                    </div>
+                    <div class="degree" id="Deg-R">
+                        <p>0.00</p>
+                        <p style="color:#777">معدل الفصل</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- //  End - Progress Bar  // -->
+            <!-- Start - add subject modal -->
+            <div id='myModal' class='modal' dir='rtl'>
+                <div class='modal-content'>
+                    <div class='modal-head'>
+                        <span class='close' onclick='closeModal("myModal")'>&#10005;</span>
+                            </div>
+                            <div class='modal-body'>
+                                <div>
+                                    <label for='subname'>اسم المادة:</label>
+                                    <br>
+                                    <input type='text' id='subname' placeholder='اختياري'>
+                                </div>
+                                <div>
+                                    <label for ='subhours'>عدد الساعات:</label>
+                                    <br>
+                                    <input type='text' id='subhours' placeholder='1'>
+                                </div>
+                                <div>
+                                    <label for ='subdegree'>الدرجة:</label>
+                                    <br>
+                                    <select id='subdegree'>
+                                        <option value='4'>A</option>
+                                        <option value='3.75'>A-</option>
+                                        <option value='3.5'>B+</option>
+                                        <option value='3'>B</option>
+                                        <option value='2.75'>B-</option>
+                                        <option value='2.5'>C+</option>
+                                        <option value='2'>C</option>
+                                        <option value='1.75'>C-</option>
+                                        <option value='1.5'>D+</option>
+                                        <option value='1'>D</option>
+                                        <option value='0.75'>D-</option>
+                                        <option value='0.5'>F</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class='modal-foot'>
+                                <span class='close' onclick='closeModal("myModal")'>إلغاء</span>
+                                <button class='addSub' id='addSub'>إضافة</button>  
+                            </div>
+                        </div>
+            </div>
+            <!-- //  End - add subject modal  // -->
+        <!--  // End-modal //   -->
+    </section>
+    <script src="./script.js"></script>
+</body>
+</html>
